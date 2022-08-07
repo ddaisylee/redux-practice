@@ -11,6 +11,9 @@ const counterSlice = createSlice({
     decrease(state) {
       state.counter--;
     },
+    increaseFive(state) {
+      state.counter += 5;
+    },
     toggleCounter(state) {
       state.showCounter = !state.showCounter;
     }
