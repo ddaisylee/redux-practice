@@ -1,6 +1,7 @@
 import classes from './Counter.module.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { counterActions } from '../store/counter';
+//구조분헤할당한 이름으로 사용할 수 있습니다.
+import { increase, decrease, increaseFive, toggleCounter } from '../store/counter';
 
 const Counter = () => {
   const dispatch = useDispatch();
@@ -8,19 +9,20 @@ const Counter = () => {
   const showCounter = useSelector(state => state.counter.showCounter);
 
   const increaseHandler = () => {
-    dispatch(counterActions.increase())
+    // counterSlice.increase 대신에 사용할 수 있습니다.
+    dispatch(increase())
   }
 
   const decreaseHandler = () => {
-    dispatch(counterActions.decrease());
+    dispatch(decrease());
   }
 
   const increaseFiveHandler = () => {
-    dispatch(counterActions.increaseFive(5));
+    dispatch(increaseFive(5));
   }
 
   const toggleCounterHandler = () => {
-    dispatch(counterActions.toggleCounter());
+    dispatch(toggleCounter());
   };
   return (
     <main className={classes.counter}>
