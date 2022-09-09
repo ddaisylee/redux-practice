@@ -21,6 +21,8 @@ const counterSlice = createSlice({
   }
 })
 
+
+console.log("counterSlice 객체는 다음과 같이 생성됩니다: ", counterSlice);
 // 슬라이스를 생성하면 각각의 리듀서 함수에 대한 액션 생성자가 만들어집니다.
 // 액션 생성자와 액션 객체를 개발자가 직접 만들지 않아도 됩니다.
 

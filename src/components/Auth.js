@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { authActions } from '../store/auth';
-import classes from './Auth.module.css';
+import styled from 'styled-components';
 
 const Auth = () => {
   const dispatch = useDispatch();
@@ -10,22 +10,52 @@ const Auth = () => {
     dispatch(authActions.login());
   }
   return (
-    <main className={classes.auth}>
+    <StyledMain>
       <section>
         <form onSubmit={loginHandler}>
-          <div className={classes.control}>
-            <label htmlFor='email'>Email</label>
-            <input type='email' id='email' />
-          </div>
-          <div className={classes.control}>
-            <label htmlFor='password'>Password</label>
-            <input type='password' id='password' />
-          </div>
+          <StyledControl>
+            <StyledLabel htmlFor='email'>Email</StyledLabel>
+            <StyledInput type='email' id='email' />
+          </StyledControl>
+          <StyledControl>
+            <StyledLabel htmlFor='password'>Password</StyledLabel>
+            <StyledInput type='password' id='password' />
+          </StyledControl>
           <button>Login</button>
         </form>
       </section>
-    </main>
+    </StyledMain>
   );
 };
 
 export default Auth;
+
+const StyledMain = styled.main`
+  margin: 5rem auto;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2);
+  width: 25rem;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  background-color: #f4f0fa;
+`
+
+const StyledControl = styled.div`
+  margin-bottom: 0.5rem;
+`
+
+const StyledLabel = styled.label`
+  display: block;
+  color: #616161;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+`
+
+const StyledInput = styled.input`
+  display: block;
+  width: 20rem;
+  margin: auto;
+  border-radius: 4px;
+  padding: 0.25rem;
+  border: 1px solid #ccc;
+`
